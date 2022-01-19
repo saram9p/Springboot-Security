@@ -1,0 +1,7 @@
+# DB 설정
+```ini
+CREATE user 'cos'@'%' IDENTIFIED BY 'cos1234';
+GRANT ALL PRIVILEGES ON *.* TO 'cos'@'%';
+CREATE DATABASE SECURITY;
+USE SECURITY;
+```
