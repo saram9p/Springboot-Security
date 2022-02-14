@@ -20,3 +20,15 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #변수 명과 DB 칼럼명을 그대로 매핑
     show-sql: true
+    
+    
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 569127029061-bg2snercc2ogq73ibl037fq2usqnf74q.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+            - email
+            - profile
