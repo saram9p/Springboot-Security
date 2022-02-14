@@ -20,13 +20,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http.authorizeRequests()
-			.antMatchers("/user/**").authenticated() // 이런 주소로 들어오게 되면 인증이 필요하게 할거임
+			.antMatchers("/user/**").authenticated() // 이런 주소로 들어오게 되면 인증이 필요하게 할거임, 인증만 되면 들어갈 수 있는 주소!!
 			.antMatchers("/manager/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MANAGER')") // manager 쪽으로 들어오게 되면 인증뿐만아니라 권한이 있는 사람만 들어오게 할거임
 			.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 			.anyRequest().permitAll() // 위의 세개 주소가 아닌 주소는 다 권한이 허용이 된다.
 			.and()
 			.formLogin()
-			.loginPage("/loginForm");
+			.loginPage("/loginForm")
+			.loginProcessingUrl("/login") // /login 주소가 호출이 되면 시큐리티가 낚아채서 대신 로그인을 진행줍니다, controller에 /login을 만들지않아도 된다.
+			.defaultSuccessUrl("/");
 
 	}
 }

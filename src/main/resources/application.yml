@@ -16,7 +16,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create #create or update or none
+      ddl-auto: update #create or update or none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #변수 명과 DB 칼럼명을 그대로 매핑
     show-sql: true
